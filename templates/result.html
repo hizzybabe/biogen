@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}'s Linktree</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        :root {
+            --primary-color: {{ colors.split(',')[0].strip() }};
+        }
+    </style>
+</head>
+<body>
+    <div class="container result">
+        <div class="profile">
+            <h1>{{ name }}</h1>
+            <p class="bio">{{ bio }}</p>
+        </div>
+
+        <div class="links">
+            {% for link in links %}
+            <a href="{{ link.url }}" target="_blank" class="link-button">
+                {{ link.title }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 

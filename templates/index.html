@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Linktree Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bio Linktree Generator</h1>
+        <form action="{{ url_for('generate') }}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="colors">Color Palette (comma-separated):</label>
+                <input type="text" id="colors" name="colors" placeholder="e.g., blue, pink, purple" required>
+            </div>
+
+            <h2>Links</h2>
+            {% for i in range(5) %}
+            <div class="link-group">
+                <input type="text" name="link_title_{{ i }}" placeholder="Link Title" required>
+                <input type="url" name="link_url_{{ i }}" placeholder="URL" required>
+            </div>
+            {% endfor %}
+
+            <button type="submit">Generate Linktree</button>
+        </form>
+    </div>
+</body>
+</html> 
