@@ -23,8 +23,8 @@
             <h2>Links</h2>
             {% for i in range(5) %}
             <div class="link-group">
-                <input type="text" name="link_title_{{ i }}" placeholder="Link Title" required>
-                <input type="url" name="link_url_{{ i }}" placeholder="URL" required>
+                <input type="text" name="link_title_{{ i }}" placeholder="Link Title" {% if i < 2 %}required{% endif %}>
+                <input type="url" name="link_url_{{ i }}" placeholder="URL" {% if i < 2 %}required{% endif %}>
             </div>
             {% endfor %}
 

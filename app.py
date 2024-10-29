@@ -31,10 +31,13 @@ def generate():
     
     links = []
     for i in range(5):
-        title = request.form[f'link_title_{i}']
-        url = request.form[f'link_url_{i}']
+        title = request.form.get(f'link_title_{i}', '').strip()
+        url = request.form.get(f'link_url_{i}', '').strip()
         if title and url:
             links.append({'title': title, 'url': url})
+    
+    if len(links) < 2:
+        return "Please provide at least 2 links", 400
     
     bio = generate_bio(name, color_palette)
     
