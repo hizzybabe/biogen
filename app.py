@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-flash')
 
 def generate_bio(name, color_palette):
     prompt = f"""Generate a short, engaging bio for {name}. 
